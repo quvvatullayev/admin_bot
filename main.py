@@ -34,7 +34,7 @@ class BotClass:
     def button(self, update:Update, context:CallbackContext):
         keyboard = [[KeyboardButton('test ✍️'), KeyboardButton('yo\'qlama✅')],[KeyboardButton('admin📥'), KeyboardButton('ro\'yhat📊')], [KeyboardButton('admin olib tashlash📤'),KeyboardButton('o\'quvchi olib tashlash📤')]]
         reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
-        updater.bot.sendMessage(update.message.from_user.id, 'natijalarni kiriting', reply_markup=reply_markup)
+        updater.bot.sendMessage(update.message.from_user.id, 'faolitatingizga omad', reply_markup=reply_markup)
 
     def getDb(self,id):
         with open('db.json', 'r') as f:
