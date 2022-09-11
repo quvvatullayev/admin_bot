@@ -135,7 +135,7 @@ class BotClass:
                 data = json.load(f)
             for k,v in data.items():
                 updater.bot.sendPhoto(v['id'], photo, caption='test natijalari chiqdi❎✅❌☑️')
-            updater.bot.sendMessage(v['id'], 'Natijalar yuborildi🆗✅')
+            updater.bot.sendMessage(id, 'Natijalar yuborildi🆗✅')
         else:
             updater.bot.sendMessage(id, 'Siz bot admin emassiz ‼️ kechirasiz sizga bunday imkoniyat berilmagan')
 
