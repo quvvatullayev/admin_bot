@@ -68,16 +68,16 @@ class BotClass:
     def stopadd(self, update:Update, context:CallbackContext, id):
         with open('admin.json', 'r') as f:
                 user = json.load(f)
-        with open('db.json', 'r') as f:
+        with open('adminname.json', 'r') as f:
                 data = json.load(f)
 
         for k,i in user.items():
             for e,v in data.items():
-                if v['id'] == i:
+                if int(e) == int(i):
                     inlineKeyboard = InlineKeyboardButton(f'saqlabqolish✅',callback_data=f'✅')
-                    inlineKeyboard1 = InlineKeyboardButton(f'yo\'qqolosh❎',callback_data=f'❎{i}')
+                    inlineKeyboard1 = InlineKeyboardButton(f'yo\'qqilish❎',callback_data=f'❎{i}')
                     reply_markup = InlineKeyboardMarkup([[inlineKeyboard,inlineKeyboard1]])
-                    updater.bot.sendMessage(id, f"{v['name']} bot adminini olib tashlaysizmi?", reply_markup=reply_markup)
+                    updater.bot.sendMessage(id, f"{v} bot adminini olib tashlaysizmi?", reply_markup=reply_markup)
 
     def buttonRespons(self, update:Update, context:CallbackContext):
         with open('admin.json', 'r') as f:
@@ -216,16 +216,22 @@ class BotClass:
         quere = update.callback_query
         with open('admin.json', 'r') as f:
             data = json.load(f)
+        with open('adminname.json', 'r') as f:
+            useradmin = json.load(f)
 
         user_id = quere.data
+        name = quere.message.text.split()[0]
 
         adminid = int(user_id[1:])
         if adminid not in data.values():
             data[str(len(data) + 1)] = adminid
+            useradmin[adminid] = name
             updater.bot.sendMessage(adminid, '🎉🎊Siz bot admini bo\'ldingiz tabriklayman🎉🎊')
 
         with open('admin.json', 'w') as f:
             json.dump(data, f, indent=2)
+        with open('adminname.json', 'w') as f:
+            json.dump(useradmin, f, indent=2)
 
         quere.edit_message_text('Bu foydalanuvchi adminlardan biri bo\'ldi✅', reply_markup=None)
 
