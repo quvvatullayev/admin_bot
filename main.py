@@ -1,8 +1,8 @@
 from telegram.ext import Updater,MessageHandler,Filters,CallbackContext,CommandHandler,CallbackQueryHandler
 from telegram import Update,ReplyKeyboardMarkup,KeyboardButton,InlineKeyboardButton,InlineKeyboardMarkup
-import os,json
+import json
 
-TOKEN = os.environ['TOKEN']
+TOKEN = '5677023630:AAGdskZAvZwdRix213Ho28QaN-NZVcQtuU8'
 
 class BotClass:
     def __init__(self) -> None:
